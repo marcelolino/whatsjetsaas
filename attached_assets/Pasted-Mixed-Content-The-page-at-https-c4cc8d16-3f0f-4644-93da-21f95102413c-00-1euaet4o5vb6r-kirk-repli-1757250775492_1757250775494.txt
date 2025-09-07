@@ -1,0 +1,23 @@
+Mixed Content: The page at 'https://c4cc8d16-3f0f-4644-93da-21f95102413c-00-1euaet4o5vb6r.kirk.replit.dev/auth/login' was loaded over HTTPS, but requested an insecure element 'http://c4cc8d16-3f0f-4644-93da-21f95102413c-00-1euaet4o5vb6r.kirk.replit.dev/imgs/logo.svg'. This request was automatically upgraded to HTTPS, For more information see https://blog.chromium.org/2019/10/no-more-mixed-messages-about-https.html
+12Mixed Content: The page at '<URL>' was loaded over HTTPS, but requested an insecure stylesheet '<URL>'. This request has been blocked; the content must be served over HTTPS.
+login:63 
+        
+       Mixed Content: The page at 'https://c4cc8d16-3f0f-4644-93da-21f95102413c-00-1euaet4o5vb6r.kirk.replit.dev/auth/login' was loaded over HTTPS, but requested an insecure element 'http://c4cc8d16-3f0f-4644-93da-21f95102413c-00-1euaet4o5vb6r.kirk.replit.dev/imgs/logo.svg'. This request was automatically upgraded to HTTPS, For more information see https://blog.chromium.org/2019/10/no-more-mixed-messages-about-https.html
+login:185 
+        
+       Mixed Content: The page at 'https://c4cc8d16-3f0f-4644-93da-21f95102413c-00-1euaet4o5vb6r.kirk.replit.dev/auth/login' was loaded over HTTPS, but requested an insecure element 'http://c4cc8d16-3f0f-4644-93da-21f95102413c-00-1euaet4o5vb6r.kirk.replit.dev/imgs/logo.svg'. This request was automatically upgraded to HTTPS, For more information see https://blog.chromium.org/2019/10/no-more-mixed-messages-about-https.html
+login:187 
+        
+       Mixed Content: The page at 'https://c4cc8d16-3f0f-4644-93da-21f95102413c-00-1euaet4o5vb6r.kirk.replit.dev/auth/login' was loaded over a secure connection, but contains a form that targets an insecure endpoint 'http://c4cc8d16-3f0f-4644-93da-21f95102413c-00-1euaet4o5vb6r.kirk.replit.dev/auth/login'. This endpoint should be made available over a secure connection.
+9Mixed Content: The page at '<URL>' was loaded over HTTPS, but requested an insecure script '<URL>'. This request has been blocked; the content must be served over HTTPS.
+login:265 
+        
+       Uncaught ReferenceError: jQuery is not defined
+    at login:265:12
+login:306 
+        
+       Uncaught ReferenceError: jQuery is not defined
+    at login:306:16
+login:1 
+        
+       Mixed Content: The page at 'https://c4cc8d16-3f0f-4644-93da-21f95102413c-00-1euaet4o5vb6r.kirk.replit.dev/auth/login' was loaded over HTTPS, but requested an insecure favicon 'http://c4cc8d16-3f0f-4644-93da-21f95102413c-00-1euaet4o5vb6r.kirk.replit.dev/imgs/favicon.png'. This request has been blocked; the content must be served over HTTPS.

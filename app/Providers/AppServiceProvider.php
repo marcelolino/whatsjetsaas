@@ -26,9 +26,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         // Force HTTPS in production or when FORCE_HTTPS is enabled
-        if(config('__misc.force_https', false) || env('FORCE_HTTPS', false) || !app()->isLocal()) {
+        if(config('__misc.force_https', false) || env('FORCE_HTTPS', false) || env('REPLIT_DEV_DOMAIN', false)) {
             \URL::forceScheme('https');
-            $this->app['request']->server->set('HTTPS', 'on');
+            \URL::forceRootUrl('https://' . env('REPLIT_DEV_DOMAIN', 'localhost'));
         }
         require app_path('Yantrana/__Laraware/Support/helpers.php');
         require app_path('Yantrana/Support/app-helpers.php');

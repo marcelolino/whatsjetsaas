@@ -1,0 +1,203 @@
+Illuminate
+ \ 
+Database
+ \ 
+QueryException
+PHP 8.2.23
+12.28.1
+SQLSTATE[HY000]: General error: 1 no such function: DATE_FORMAT
+SELECT COUNT(*) AS vendors_count, DATE_FORMAT(created_at, '%c-%Y') month_year, DATE_FORMAT(created_at, '%Y') YEAR, MONTH(created_at) month_number FROM "vendors" WHERE "vendors"."created_at" BETWEEN 2024-10-01 00:00:00 AND 2025-09-30 00:00:00 GROUP BY "month_year", "year", "month_number" ORDER BY "year" ASC, "month_number" ASC
+
+
+
+Expand vendor frames
+9 vendor frames
+App
+ \ 
+Yantrana
+ \ 
+Components
+ \ 
+Vendor
+ \ 
+Repositories
+ \ 
+VendorRepository
+ 
+: 228
+vendorRegistrationsStats
+App
+ \ 
+Yantrana
+ \ 
+Components
+ \ 
+Dashboard
+ \ 
+DashboardEngine
+ 
+: 167
+prepareDashboardData
+App
+ \ 
+Yantrana
+ \ 
+Components
+ \ 
+Dashboard
+ \ 
+Controllers
+ \ 
+DashboardController
+ 
+: 59
+dashboardView
+5 vendor frames
+App
+ \ 
+Http
+ \ 
+Middleware
+ \ 
+CentralAccessCheckpost
+ 
+: 41
+handle
+3 vendor frames
+App
+ \ 
+Http
+ \ 
+Middleware
+ \ 
+Authenticate
+ 
+: 91
+handle
+2 vendor frames
+App
+ \ 
+Http
+ \ 
+Middleware
+ \ 
+VerifyCsrfToken
+ 
+: 38
+handle
+48 vendor frames
+public
+ / 
+index
+.php
+ 
+: 18
+require_once
+server
+.php
+ 
+: 19
+[top]
+app
+ / 
+Yantrana
+ / 
+Components
+ / 
+Vendor
+ / 
+Repositories
+ / 
+VendorRepository
+.php
+ 
+: 228
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                'month_name' => $dt->translatedFormat('M').' '.__tr($dt->translatedFormat('Y')),
+
+                'month' => $dt->shortMonthName,
+
+                'year' => $dt->year,
+
+                'month_number' => $dt->month,
+
+                'month_year' => $dt->month.'-'.$dt->year,
+
+            ];
+
+        });
+
+
+
+        $dataRecords = $this->primaryModel::select(
+
+            DB::raw("COUNT(*) AS vendors_count, DATE_FORMAT(created_at, '%c-%Y') month_year"),
+
+            DB::raw("DATE_FORMAT(created_at, '%Y') year"),
+
+            DB::raw('MONTH(created_at) month_number'),
+
+            // DB::raw("CONCAT(DATE_FORMAT(created_at, ' %b'), DATE_FORMAT(created_at, ' %Y')) as month_name")
+
+        )
+
+            ->whereBetween('vendors.created_at', [
+
+                $startDate,
+
+                $endDate,
+
+            ])
+
+            ->groupBy('month_year', 'year', 'month_number')
+
+            ->orderBy('year')
+
+            ->orderBy('month_number')
+
+            ->get();
+
+
+
+        return arrayExtend(
+
+            __reIndexArray($allTheMonths->toArray(), 'month_year'),
+
+            __reIndexArray($dataRecords->toArray(), 'month_year')
+
+        );
+
+    }
+
+}
+

@@ -213,10 +213,10 @@ class VendorRepository extends BaseRepository implements VendorRepositoryInterfa
         });
 
         $dataRecords = $this->primaryModel::select(
-            DB::raw("COUNT(*) AS vendors_count, DATE_FORMAT(created_at, '%c-%Y') month_year"),
-            DB::raw("DATE_FORMAT(created_at, '%Y') year"),
-            DB::raw('MONTH(created_at) month_number'),
-            // DB::raw("CONCAT(DATE_FORMAT(created_at, ' %b'), DATE_FORMAT(created_at, ' %Y')) as month_name")
+            DB::raw("COUNT(*) AS vendors_count, strftime('%m-%Y', created_at) month_year"),
+            DB::raw("strftime('%Y', created_at) year"),
+            DB::raw("cast(strftime('%m', created_at) as integer) month_number"),
+            // SQLite compatible date formatting
         )
             ->whereBetween('vendors.created_at', [
                 $startDate,
